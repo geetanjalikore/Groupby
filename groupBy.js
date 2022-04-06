@@ -20,8 +20,7 @@ const isEqual = function (lhs, rhs) {
   return true;
 };
 
-const groupBy = function (element, groupedElements) {
-  const groups = groupedElements.slice(0);
+const groupBy = function (element, groups) {
   for (let index = 0; index < groups.length; index++) {
     if (isEqual(element, groups[index][0])) {
       groups[index].push(element);
