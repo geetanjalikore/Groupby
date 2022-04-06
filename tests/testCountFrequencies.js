@@ -1,5 +1,5 @@
 const assert = require('./assert.js').assert;
-const lib = require('../src/countFrequencies.js');
+const lib = require('../src/countFrequency.js');
 const countFrequencies = lib.countFrequencies;
 
 const testCountFrequencies = function (list, expected, description) {
