@@ -1,14 +1,19 @@
-const areEqual = function (argument1, argument2) {
-  if (!Array.isArray(argument1) || !Array.isArray(argument2)) {
-    return argument1 === argument2;
+const areArrays = function (entity1, entity2) {
+  const isArray = Array.isArray;
+  return isArray(entity1) && isArray(entity2);
+};
+
+const isEqual = function (lhs, rhs) {
+  if (!areArrays(lhs, rhs)) {
+    return lhs === rhs;
   }
 
-  if (argument1.length !== argument2.length) {
+  if (lhs.length !== rhs.length) {
     return false;
   }
 
-  for (let index = 0; index < argument2.length; index++) {
-    if (!areEqual(argument1[index], argument2[index])) {
+  for (let index = 0; index < rhs.length; index++) {
+    if (!isEqual(lhs[index], rhs[index])) {
       return false;
     }
   }
@@ -18,7 +23,7 @@ const areEqual = function (argument1, argument2) {
 const groupBy = function (element, groupedElements) {
   const groups = groupedElements.slice(0);
   for (let index = 0; index < groups.length; index++) {
-    if (areEqual(element, groups[index][0])) {
+    if (isEqual(element, groups[index][0])) {
       groups[index].push(element);
       return groups;
     }
