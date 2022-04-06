@@ -32,9 +32,9 @@ const groupBy = function (element, groups) {
 };
 
 const groupElements = function (batch) {
-  let groups = [];
+  const groups = [];
   for (let index = 0; index < batch.length; index++) {
-    groups = groupBy(batch[index], groups);
+    groupBy(batch[index], groups);
   }
   return groups;
 };
